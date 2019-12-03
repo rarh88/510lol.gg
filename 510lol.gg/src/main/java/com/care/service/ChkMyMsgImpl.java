@@ -1,6 +1,9 @@
 package com.care.service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -22,7 +25,7 @@ public class ChkMyMsgImpl implements Services{
     private SqlSession sqlSession;
     
    @Override
-   public void execute(Model model) {
+   public void execute(Model model)  {
       // TODO Auto-generated method stub
       Map<String, Object> map = model.asMap();
       HttpServletRequest request = (HttpServletRequest)map.get("request");
@@ -47,7 +50,37 @@ public class ChkMyMsgImpl implements Services{
       if(totalmsg%5>0) {
          total_msg += 1;
       }
-      model.addAttribute("myMsg", pageing);
+      ArrayList<MsgDTO> ddto = new ArrayList<MsgDTO>();
+      try {
+    	  for(int i=0; i < pageing.size(); i++) {
+    	 
+    	 
+    		  MsgDTO aaa = new MsgDTO();
+        	  aaa.setMnumber(pageing.get(i).getMnumber());
+        	  aaa.setMsender(pageing.get(i).getMsender());
+        	  aaa.setMreceiver(pageing.get(i).getMreceiver());
+        	  aaa.setMcontent(pageing.get(i).getMcontent());
+        	  
+        	String date = pageing.get(i).getMdate();
+    	  SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmm");
+    	  SimpleDateFormat format2 = new SimpleDateFormat("yyyy년 MM월 dd일 E요일");
+
+    	  Date receivedate = dateFormat.parse(date);
+    	  String rr = format2.format(receivedate);
+    	  aaa.setMdate(rr);
+    	  ddto.add(aaa);
+    	  }
+    	  }catch(Exception e){
+    		  e.printStackTrace();
+    	  }
+
+    	
+    	  
+    
+    	
+   
+      
+      model.addAttribute("myMsg", ddto);
       model.addAttribute("totalmsg", totalmsg);
       model.addAttribute("mytotalMsg", total_msg);
       

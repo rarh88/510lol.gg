@@ -1,16 +1,25 @@
 package com.care.dto;
 
+import java.util.Date;
+
 public class MsgDTO {
    private int mnumber;
    private String msender;
    private String mreceiver;
    private String mcontent;
    private String mdate;
+   private Date jdate;
    private int mst;
    private int stnum;
    private int endnum;
    
-   public String getMsender() {
+   public Date getJdate() {
+	return jdate;
+}
+public void setJdate(Date jdate) {
+	this.jdate = jdate;
+}
+public String getMsender() {
       return msender;
    }
    public void setMsender(String msender) {
