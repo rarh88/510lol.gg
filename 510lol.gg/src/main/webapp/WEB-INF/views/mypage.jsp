@@ -56,21 +56,21 @@
    
    
    <style>
-      .mypage1{width:80%; margin:0 auto; text-align:center;}
+      .mypage1{width:80%; margin:0 auto; text-align:center; color:white;}
       table{margin:0 auto; text-align:center;}
    
    </style>
    
    <style>
-      .box4{width:300px; padding:100px; position:absolute;
-         top:1450px; left:50%; transform: translate(-50%,-50%);
+      .box4{width:500px; padding:100px; position:absolute;
+         top:1100px; left:50%; transform: translate(-50%,-50%);
          bakcground:#191919; text-align:center;
       }
       
       .box4 input[type = "text"],.box3 input[type = "password"]{
       border:0;
       background:none;
-      display:block;
+      
       margin:20px auto;
       text-align:center;
       border: 2px solid #3498db;
@@ -89,7 +89,7 @@
       .box4 input[type="submit"]{
          border:0;
          background:none;
-         display:block;
+        
          margin:20px auto;
          text-align:center;
          border:2px solid #2ecc71;
@@ -105,17 +105,19 @@
       }
       
       .box4 input[type = "button"]{
-         border:0;
+         
          background:none;
-         margin:20px auto;
+
          text-align:center;
          border:2px solid #2ecc71;
-         padding:14px 40px;
+         
          outline: none;
          color:black;
          border-radius:24px;
          transition: 0.25s;
          cursor:pointer;
+         width:80px;
+         height:40px;
       }
       .box4 input[type="button"]:hover{
          background:#2ecc71;
@@ -167,7 +169,7 @@
 
 .modalDialog3 > div {
 	width: 800px;
-	height:800px;
+	height:700px;
 	position: relative;
 	margin: 10% auto;
 	padding: 5px 20px 13px 20px;
@@ -176,6 +178,7 @@
 	background: -moz-linear-gradient(#fff, #999);
 	background: -webkit-linear-gradient(#fff, #999);
 	background: -o-linear-gradient(#fff, #999);
+	text-align:center;
 	
 }
 
@@ -205,7 +208,7 @@
 transition: opacity 400ms ease-in;
    	
   .modalDialog3 div{
-  width:600px; height:450px; overflow:auto;}
+  width:600px; height:450px; overflow:auto; }
   
   
 	test3{
@@ -304,8 +307,29 @@ transition: opacity 400ms ease-in;
   
   
 	test1{
-	width:600px; height:450px;
+	width:600px; height:450px; margin: 0 auto; text-align:center;
 	}
+	
+	.bt1{
+		align:center;
+		background:none;
+	   margin:0 auto;
+	   text-align:center;
+	   border: 2px solid #3498db;
+	   left:50%;
+	   width:100px;
+	   height:50px;
+	   outline:none;
+	   color:black;
+	   border-radius:24px;
+	   transition:0.25s;
+	}
+	.bt1:hover{
+      background:#2ecc71;
+   }
+	
+	
+	
 	
 	.test1 tbdiv{
 		width:500px; height:450px;
@@ -326,11 +350,49 @@ transition: opacity 400ms ease-in;
 		width:400px; height:250px; align:center; text-align:center;
 				overflow:auto;
 		
+		
+		
+		
+		
+		
+		
+		
+		
 	}	
 	
 	.tbdiv img{width:70px; height:70px;}
 
+
+	
+
+
    </style>
+   
+<style>
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #b59a61;
+}
+
+
+</style>
+   
+   
    
    
    <script>
@@ -456,6 +518,7 @@ var counting = 0;
       </c:when>
       <c:otherwise>
 
+<br><br>
       <div class="mypage1">
       <h1>My Page</h1>
          <table border="1">
@@ -465,16 +528,77 @@ var counting = 0;
                <tr><td>이름</td><td>${lists.name }</td></tr>
                <tr><td>핸드폰번호</td><td><input type="text" id="phonenumc" name="phonenumc" value="${lists.phonenum }" style="text-align:center;"></td></tr>
             
+
             <tr><td>롤닉네임</td><td>${lists.nick }</td></tr>
-            <tr><td>랭크</td><td>${lists.rank }</td></tr>
-            <tr><td>티어</td><td>${lists.tier }</td></tr>
-            <tr><td>점수</td><td>${lists.score }</td></tr>
+            <tr><td>티어</td><td>${lists.tier } ${lists.rank }</td></tr>
+            <tr><td>점수</td><td>${lists.score }점</td></tr>
             <tr><td>총판수</td><td>${lists.total }</td></tr>
             <tr><td>승리</td><td>${lists.wins }</td></tr>
-            <tr><td>승률</td><td>${lists.winrate }</td></tr>
-            <tr><td>모스트픽1</td><td><img id="best1" src="resources/img/${lists.best1}.png" onclick="testchamp(${lists.best1}, 'best1')"></td></tr>
-            <tr><td>모스트픽2</td><td><img id="best2" src="resources/img/${lists.best2}.png" onclick="testchamp(${lists.best2}, 'best2')" ></td></tr>
-            <tr><td>모스트픽3</td><td><img id="best3" src="resources/img/${lists.best3}.png" onclick="testchamp(${lists.best3}, 'best3')"></td></tr>
+            <tr><td>승률</td><td>${lists.winrate }%</td></tr>
+        	<tr><td colspan="2">챔피언클릭시 변경가능합니다</td></tr>
+            <tr>        	
+            	<td><img id="best1" src="resources/img/${lists.best1}.png" onclick="testchamp(${lists.best1}, 'best1')"></td>
+    			
+    				<c:choose>
+    					<c:when test="${lists.best1kda == 'null' }">
+    						<td>데이터가없습니다. <br>party를 누르면 전적이갱신됩니다.</td>
+    					</c:when>
+    					<c:otherwise>
+    						<c:choose>
+    							<c:when test="${lists.best1kda == '데이터없음' }">
+    								<td>최근에 챔피언을 플레이한 기록이 없습니다.</td>
+    							</c:when>
+    							<c:otherwise>
+    								<td>KDA:${lists.best1kda }<br> 총판수:${lists.best1total }<br> 승률:${lists.best1winrate }%</td>
+    							</c:otherwise>
+    						</c:choose>
+            			</c:otherwise>
+           			</c:choose>
+           			
+            </tr>
+            <tr>
+            	
+            	<td><img id="best2" src="resources/img/${lists.best2}.png" onclick="testchamp(${lists.best2}, 'best2')" ></td>
+            	
+            	<c:choose>
+    					<c:when test="${lists.best2kda == 'null' }">
+    						<td>데이터가없습니다. <br>party를 누르면 전적이갱신됩니다.</td>
+    					</c:when>
+    					<c:otherwise>
+    						<c:choose>
+    							<c:when test="${lists.best2kda == '데이터없음' }">
+    								<td>최근에 챔피언을 플레이한 기록이 없습니다.</td>
+    							</c:when>
+    							<c:otherwise>
+    								<td>KDA:${lists.best2kda }<br> 총판수:${lists.best2total }<br> 승률:${lists.best2winrate }%</td>
+    							</c:otherwise>
+    						</c:choose>
+            			</c:otherwise>
+           			</c:choose>
+            	
+           	</tr>
+            <tr>	
+            	<td><img id="best3" src="resources/img/${lists.best3}.png" onclick="testchamp(${lists.best3}, 'best3')"></td>
+            	
+            	<c:choose>
+    					<c:when test="${lists.best3kda == 'null' }">
+    						<td>데이터가없습니다. <br>party를 누르면 전적이갱신됩니다.</td>
+    					</c:when>
+    					<c:otherwise>
+    						<c:choose>
+    							<c:when test="${lists.best3kda == '데이터없음' }">
+    								<td>최근에 챔피언을 플레이한 기록이 없습니다.</td>
+    							</c:when>
+    							<c:otherwise>
+    								<td>KDA:${lists.best3kda }<br> 총판수:${lists.best3total }<br> 승률:${lists.best3winrate }%</td>
+    							</c:otherwise>
+    						</c:choose>
+            			</c:otherwise>
+           			</c:choose>
+            	
+
+            </tr>
+            	
 
             </table>
             <div class="box4" >
@@ -489,18 +613,20 @@ var counting = 0;
                <input type="button" value="로그아웃" onclick="click_logout();">
    
             </c:otherwise>
-         
-      
+          
          </c:choose>
-            </form>
+            
             </div>
+            
          </div>
+          
       
       
       
       </c:otherwise>
+      
    </c:choose>
-   
+    </form>
    
    
    <div id="openModal3" class="modalDialog3">
@@ -712,8 +838,8 @@ var counting = 0;
 	            </tr>
 	         </table>
         </div>
-         
-            <button onclick="ok3()">저장</button>
+        	<br>
+            <button class="bt1" onclick="ok3()">변경</button>
 	</div>
    
    </div>
