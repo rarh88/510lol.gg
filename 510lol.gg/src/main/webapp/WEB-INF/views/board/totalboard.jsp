@@ -260,14 +260,10 @@ body{
 								<button type="button" disabled="disabled">▶</button>
 							</c:otherwise>
 
-
-
 						</c:choose>
 
 					</div>
-
 				</div>
-			
 			</li>
 
 			<!-- 검색 폼 영역 -->
