@@ -38,9 +38,7 @@
       }
    }
    
-   function canncel(){
-      history.go(-1);
-   }
+  
 </script>
 </head>
 <body>
@@ -63,7 +61,7 @@
             <tr>
                <td colspan="2" align="right">
                <input type="button" value="보내기" onclick="send('${param.user }','${param.mem }','${param.mnumber }' )">
-               <input type="button" value="취소" onclick="cancel()">
+               <input type="button" value="취소" onclick="history.go(-1)">
                </td>
             </tr>
          

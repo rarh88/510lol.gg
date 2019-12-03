@@ -20,8 +20,9 @@
 <body >
    
    
-
-   <table border="1" align="center">
+	<c:choose>
+		<c:when test="${totalmsg != 0 }">
+	<table border="1" align="center">
       <c:forEach var="msg" items="${myMsg }">
          <tr>
             <td><label id="${msg.mnumber }s">${msg.msender }</label></td>
@@ -72,7 +73,12 @@
             </td>
       </tr>
    
-   </table>
+		</c:when>
+		<c:otherwise>
+			쪽지가 없습니다!
+		</c:otherwise>
+	</c:choose>
+   
    
 </body>
 </html>

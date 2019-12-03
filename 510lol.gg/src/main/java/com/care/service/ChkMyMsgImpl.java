@@ -48,6 +48,7 @@ public class ChkMyMsgImpl implements Services{
          total_msg += 1;
       }
       model.addAttribute("myMsg", pageing);
+      model.addAttribute("totalmsg", totalmsg);
       model.addAttribute("mytotalMsg", total_msg);
       
    }
